@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fleura Design — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#11110f;           /* deep charcoal */
+      --paper:#efede8;         /* warm light */
+      --text:#1b1a18;          /* body text */
+      --muted:#6a655c;         /* subtle text */
+      --accent:#a47a4a;        /* warm gold */
+      --white:#fff;
+      --olive:#201c13;         /* deep olive */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; color:var(--text); background:var(--paper)}
+    a{color:inherit}
+
+    /* Announcement */
+    .bar{background:var(--ink); color:#efe9de; text-align:center; font-size:.82rem; letter-spacing:.1em; padding:.6rem .75rem}
+    .bar a{color:#f3d7b4; text-underline-offset:2px}
+
+    /* Header */
+    header{position:sticky; top:0; z-index:50; background:var(--paper); border-bottom:1px solid #e5dfd5}
+    .container{max-width:1200px; margin:0 auto; padding:0 20px}
+    .row{display:flex; align-items:center; justify-content:space-between; height:74px}
+    .brand{font-family:"Cormorant Garamond", serif; font-weight:600; font-size:28px; letter-spacing:.02em}
+    nav{display:flex; gap:28px; align-items:center}
+    .nav-links{display:flex; gap:26px; list-style:none; margin:0; padding:0}
+    .nav-links a{font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; text-decoration:none; color:#4a463f}
+    .nav-links a:hover{color:#1f1e1b}
+    .socials{display:flex; gap:14px}
+    .socials svg{width:18px; height:18px; fill:#6d665c}
+    .hamburger{display:none; width:40px; height:40px; border:1px solid #dad6cf; border-radius:10px; align-items:center; justify-content:center; background:#fff}
+    .hamburger span{width:20px; height:2px; background:#333; position:relative; display:block}
+    .hamburger span::before,.hamburger span::after{content:""; position:absolute; left:0; width:100%; height:2px; background:#333}
+    .hamburger span::before{top:-6px} .hamburger span::after{top:6px}
+    @media (max-width:980px){
+      .row{height:auto; padding:12px 0}
+      nav{position:fixed; inset:72px 0 auto 0; transform:translateY(-10px); opacity:0; pointer-events:none; transition:.25s ease; background:#fff; border-bottom:1px solid #eee}
+      nav.open{transform:translateY(0); opacity:1; pointer-events:auto}
+      .nav-links{flex-direction:column; align-items:flex-start}
+      .nav-links a{display:block; padding:14px 20px; border-top:1px solid #f0ede7}
+      .socials{padding:14px 20px}
+      .hamburger{display:inline-flex}
+    }
+
+    /* =====================
+       HERO
+       ===================== */
+    .about-hero{position:relative; padding:80px 0 60px; background:var(--paper)}
+    .about-hero .wrap{max-width:1200px; margin:0 auto; padding:0 20px; display:grid; grid-template-columns: 1.1fr 1fr; gap:40px; align-items:start}
+    .about-portrait{position:relative}
+    .about-portrait .frame{width:100%; max-width:520px; height:420px; object-fit:cover; display:block; box-shadow:0 20px 40px rgba(0,0,0,.18)}
+    .about-portrait .stamp{position:absolute; right:-30px; top:260px; width:120px; height:120px; border-radius:50%; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,.25)}
+    .about-portrait .stamp img{width:100%; height:100%; object-fit:cover}
+
+    .about-panel{background:#1b1b1b; color:#f6f4ef; padding:34px 34px 40px; position:relative}
+    .about-panel .eyebrow{font-size:.7rem; letter-spacing:.22em; text-transform:uppercase; color:#d6c5a3; font-weight:800}
+    .about-panel h1{font-family:"Cormorant Garamond", serif; font-weight:600; font-size: clamp(24px, 3.8vw, 40px); line-height:1.1; margin:.3rem 0 .8rem}
+    .about-panel p{color:#e7e2d7; line-height:1.8}
+    .about-panel .cta{display:inline-block; margin-top:14px; color:#f6f4ef; text-decoration:none; border-bottom:1px solid rgba(255,255,255,.6)}
+
+    /* =====================
+       STORY STRIPE
+       ===================== */
+    .story{background:#cfc8be; padding:64px 20px}
+    .story .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.2fr .8fr; gap:44px}
+    .story h2{font-family:"Cormorant Garamond", serif; font-weight:600; font-size: clamp(22px, 3vw, 30px); line-height:1.2; margin:0 0 10px}
+    .story .kicker{font-size:.76rem; letter-spacing:.22em; text-transform:uppercase; color:#6a5a3e; font-weight:800}
+    .story p{line-height:1.8; color:#2f2c27}
+    .story .mini{display:flex; gap:16px; margin-top:16px}
+    .story .mini img{width:64px; height:64px; object-fit:cover}
+    .story .right-collage{position:relative}
+    .story .right-collage .card{position:absolute; right:20px; top:-40px; width:150px; height:110px; overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,.25); border:6px solid #fff}
+    .story .right-collage .card img{width:100%; height:100%; object-fit:cover}
+    .story .right-collage .portrait{width:100%; height:340px; object-fit:cover; border:1px solid #e9e4db; box-shadow:0 18px 36px rgba(0,0,0,.18)}
+
+    /* =====================
+       NUMBERS STRIP
+       ===================== */
+    .numbers{background:var(--olive); color:#f4f1ea; padding:26px 20px; border-top:1px solid rgba(255,255,255,.12); border-bottom:1px solid rgba(255,255,255,.12)}
+    .numbers .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:auto 1fr 1fr 1fr; gap:24px; align-items:center}
+    .numbers .script{font-family:"Cormorant Garamond", serif; font-style:italic; font-size:28px}
+    .stat{display:grid; justify-items:center; text-align:center}
+    .stat .value{font-weight:800; font-size:22px; letter-spacing:.1em}
+    .stat .label{font-size:.78rem; letter-spacing:.22em; text-transform:uppercase; opacity:.85}
+
+    /* =====================
+       JOURNEY TIMELINE
+       ===================== */
+    .journey{background:var(--paper); padding:80px 20px}
+    .journey .wrap{max-width:1000px; margin:0 auto}
+    .journey h2{font-family:"Cormorant Garamond", serif; text-align:center; font-weight:600; font-size:clamp(26px,4vw,42px); margin:0 0 30px}
+    .timeline{position:relative; margin:0 auto; padding-left:28px}
+    .timeline::before{content:""; position:absolute; left:50%; top:0; bottom:0; width:1px; background:#bdb6ab}
+    .mile{display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; margin:34px 0}
+    .mile:nth-child(odd) .info{order:2}
+    .mile:nth-child(odd) .media{order:1}
+    .mile .year{font-family:"Cormorant Garamond", serif; font-style:italic; color:#6a5a3e}
+    .mile .info h3{margin:4px 0 6px; font-size:.86rem; letter-spacing:.22em; text-transform:uppercase}
+    .mile p{margin:0; color:#2f2c27; line-height:1.7}
+    .mile .media img{width:100%; height:200px; object-fit:cover; border:1px solid #e9e4db}
+
+    /* =====================
+       FULL IMAGE BAND
+       ===================== */
+    .image-band{position:relative; height:320px; background:#000; overflow:hidden}
+    .image-band img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:.9}
+
+    /* =====================
+       QUIZ GRID
+       ===================== */
+    .quiz{background:#2a261d; color:#f0ede7; padding:70px 20px 80px}
+    .quiz .wrap{max-width:1100px; margin:0 auto}
+    .quiz h2{font-family:"Cormorant Garamond", serif; text-align:center; font-weight:600; font-size:clamp(26px,4vw,40px); margin:0 0 24px}
+    .quiz-grid{display:grid; grid-template-columns: repeat(3, 1fr); gap:30px; border-top:1px solid rgba(255,255,255,.25); border-bottom:1px solid rgba(255,255,255,.25); padding:26px 0}
+    .quiz-col{display:grid; gap:18px; text-align:center}
+    .quiz-col .top{font-style:italic}
+    .quiz-col .pair{display:grid; gap:6px}
+    .quiz small{color:#d6cdbf}
+
+    /* =====================
+       VALUES / COLLAGE
+       ===================== */
+    .values{background:var(--paper); padding:70px 20px}
+    .values .wrap{max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start}
+    .values .collage{position:relative; min-height:420px; background:#000; overflow:hidden; box-shadow:0 18px 36px rgba(0,0,0,.2)}
+    .values .collage img{width:100%; height:100%; object-fit:cover; opacity:.92}
+    .values .chip{position:absolute; left:16px; bottom:16px; width:140px; height:160px; overflow:hidden; border:8px solid #fff; box-shadow:0 10px 20px rgba(0,0,0,.25)}
+    .values h3{font-family:"Cormorant Garamond", serif; font-weight:600; font-size:clamp(22px,3.4vw,34px); margin:0 0 10px}
+    .values .item{margin-bottom:16px}
+    .values .item b{display:block; text-transform:uppercase; letter-spacing:.18em; font-size:.78rem; margin-bottom:6px; color:#6b5e47}
+    .values .item p{margin:0; line-height:1.7}
+
+    /* =====================
+       RESOURCES CTA
+       ===================== */
+    .resources{background:#e8e4de; padding:60px 20px}
+    .resources .wrap{max-width:1100px; margin:0 auto}
+    .resources h3{text-align:center; font-family:"Cormorant Garamond", serif; font-weight:600; font-size:clamp(22px,3.6vw,30px); margin:0 0 24px}
+    .res-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px}
+    .card{background:#fff; border:1px solid #e6e1d8}
+    .card img{width:100%; height:220px; object-fit:cover; display:block}
+    .card .cap{padding:10px 14px; text-align:center; font-size:.72rem; letter-spacing:.18em; text-transform:uppercase; color:#6a655c}
+    @media (max-width:1024px){
+      .about-hero .wrap{grid-template-columns:1fr}
+      .story .wrap{grid-template-columns:1fr}
+      .values .wrap{grid-template-columns:1fr}
+      .res-grid{grid-template-columns:1fr}
+      .quiz-grid{grid-template-columns:1fr}
+      .numbers .wrap{grid-template-columns:1fr 1fr; gap:16px}
+      .numbers .script{grid-column:1/-1; text-align:center}
+      .timeline::before{left:10px}
+      .mile{grid-template-columns:1fr; padding-left:20px}
+    }
+
+    /* Footer Mid (center block) */
+    footer{background:#121212; color:#f4f1ea}
+    .footer-mid{display:grid; grid-template-columns: 1fr minmax(280px,520px) 1fr; gap:36px; align-items:start; max-width:1200px; margin:0 auto; padding:60px 20px; position:relative; background:transparent}
+    .footer-mid .rail{position:relative; padding:0 24px}
+    .footer-mid .rail::before{content:""; position:absolute; top:0; bottom:0; width:1px; background:rgba(255,255,255,.25)}
+    .footer-mid .rail.left::before{left:-18px}
+    .footer-mid .rail.right::before{right:-18px}
+    .footer-mid h4{font-family:"Cormorant Garamond", serif; font-style:italic; font-size:24px; margin:0 0 14px; text-decoration:underline; text-underline-offset:6px}
+    .footer-mid .nav{list-style:none; margin:0; padding:0; display:grid; gap:14px}
+    .footer-mid .nav a{color:#f4f1ea; text-decoration:none; font-size:.86rem; letter-spacing:.2em; text-transform:uppercase; font-weight:700}
+    .footer-mid .nav a:hover{opacity:.8}
+    .footer-mid .brand{text-align:center}
+    .footer-mid .logo{font-family:"Cormorant Garamond", serif; font-weight:600; font-size: clamp(30px,4vw,44px); margin:0 0 8px}
+    .footer-mid .tagline{font-size:.9rem; color:#d4d0c7; margin-bottom:14px}
+    .footer-mid .socials{display:flex; gap:20px; justify-content:center}
+    .footer-mid .socials a{color:#f4f1ea}
+    .footer-mid .socials svg{width:20px; height:20px; fill:currentColor; opacity:.85}
+    .footer-mid .socials a:hover svg{opacity:1}
+    @media (max-width:900px){.footer-mid{grid-template-columns:1fr; text-align:center; gap:28px} .footer-mid .rail::before{display:none} .footer-mid .rail{padding:0} .footer-mid .nav{justify-items:center}}
+
+    /* Footer: Newsletter + Copyright */
+    .footer-news{background:#e8e4de; color:var(--text); position:relative}
+    .footer-news .strip{display:grid; grid-template-columns:repeat(6,1fr); gap:0; overflow:hidden}
+    .footer-news .strip img{width:100%; height:220px; object-fit:cover; display:block; filter:brightness(.92)}
+    .footer-news .wrap{max-width:1200px; margin:0 auto; padding:64px 20px 80px; text-align:center}
+    .footer-news .kicker{font-size:.82rem; letter-spacing:.22em; text-transform:uppercase; font-weight:800; color:#6b655c}
+    .footer-news h3{font-family:"Cormorant Garamond", serif; font-weight:600; font-size: clamp(32px, 4.4vw, 66px); line-height:1.04; margin:.5rem 0 1rem}
+    .footer-news .sub{max-width:820px; margin:0 auto 24px; color:#4b4742; line-height:1.8}
+    .footer-form{display:grid; grid-template-columns:1fr 1.2fr auto; gap:16px; max-width:900px; margin:0 auto}
+    .footer-form input[type="text"], .footer-form input[type="email"]{height:54px; padding:0 18px; font:400 16px/1 Inter, system-ui, sans-serif; border:1px solid #bdb6ab; background:transparent; color:#1b1a18; letter-spacing:.04em}
+    .footer-form input::placeholder{color:#6f6a62}
+    .footer-form .btn{height:54px; padding:0 26px; border:0; background:var(--ink); color:#fff; font-weight:800; letter-spacing:.18em; text-transform:uppercase; cursor:pointer}
+    .footer-form .btn:hover{filter:brightness(.95)}
+    @media (max-width:860px){.footer-form{grid-template-columns:1fr}}
+    .footer-copy{border-top:1px solid #d9d3ca; background:#ebe7e1; color:#4c4842; text-align:center; font-size:.85rem; letter-spacing:.14em; text-transform:uppercase; padding:18px 14px}
+  </style>
+</head>
+<body>
+  <div class="bar">NOW BOOKING CLIENTS FOR WINTER 20XX. <a href="#">CLICK HERE</a> TO APPLY.</div>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="brand">Fleura Design</div>
+        <button class="hamburger" id="menuBtn" aria-label="Open menu"><span></span></button>
+        <nav id="siteNav" aria-label="Main navigation">
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog-single.html">Blog Single</a></li>
+          </ul>
+          <div class="socials" aria-label="social media">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 2a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM18 6.5a1 1 0 110 2 1 1 0 010-2z"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12.04 2C7.6 2 4 5.58 4 10.02c0 3.27 1.99 6.06 4.82 7.2-.07-.61-.14-1.55.03-2.22.15-.63.96-4.02.96-4.02s-.24-.49-.24-1.22c0-1.14.66-1.99 1.48-1.99.7 0 1.04.52 1.04 1.15 0 .7-.45 1.76-.69 2.74-.2.82.43 1.5 1.26 1.5 1.51 0 2.67-1.59 2.67-3.87 0-2.02-1.45-3.42-3.52-3.42-2.4 0-3.81 1.8-3.81 3.67 0 .72.28 1.49.64 1.91.07.08.08.15.06.24-.06.26-.2.82-.23.93-.04.13-.13.16-.3.1-1.12-.52-1.82-2.17-1.82-3.5 0-2.84 2.06-5.46 5.95-5.46 3.12 0 5.54 2.22 5.54 5.19 0 3.09-1.95 5.58-4.65 5.58-0.9 0-1.74-.47-2.03-1.02l-.55 2.1c-.2.77-.75 1.72-1.12 2.3.84.26 1.73.4 2.64.4 4.44 0 8.04-3.58 8.04-8.02C20.08 5.58 16.48 2 12.04 2z"/></svg></a>
+            <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 3.5c.7 1.8 2.07 3.27 3.8 4.02v3.07a8.39 8.39 0 01-3.8-1.05v5.9c0 3.39-2.75 6.15-6.15 6.15S4.2 18.83 4.2 15.44s2.76-6.15 6.15-6.15c.34 0 .68.03 1 .09v3.2a3.52 3.52 0 00-1-.15 3.05 3.05 0 103.05 3.05V2.9h3.1v.6z"/></svg></a>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="wrap">
+      <div class="about-portrait">
+        <img class="frame" src="https://images.pexels.com/photos/16791401/pexels-photo-16791401.jpeg" alt="Studio portrait" />
+     
+      </div>
+      <div class="about-panel">
+        <div class="eyebrow">Curating luxury aesthetics and brands</div>
+        <h1>Hey friends, I'm Fleura — the girl behind the brand.</h1>
+        <p>Dedicated to classic, cozy-meets-elevated visuals; blending luxe, layered palettes across tactile print, digital, and interior moments. I’ve spent a decade refining a process that feels personal and pressure-free, allowing you to enjoy the creative journey while we build something timeless together.</p>
+        <p>When not designing, you’ll find me styling coffee-table vignettes, hunting dusty bookshops, and making far too many espressos.</p>
+        <a class="cta" href="#contact">get in touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY STRIPE -->
+  <section class="story">
+    <div class="wrap">
+      <div>
+        <div class="kicker">I've been creating design since I was a little girl — and I'm thrilled to live my dream job each day.</div>
+        <h2>I'm not here to just make something pretty, I create designs that authentically capture your heart + soul.</h2>
+        <p>We build thoughtful brands that feel like home: clean forms with clever layers. Modern palettes, generous white space, and editorial energy—infused with warmth. Our approach is collaborative and organized, with milestones that keep momentum while leaving room for surprise and delight.</p>
+        <div class="mini">
+          <img src="https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?q=80&w=400&auto=format&fit=crop" alt="swatch" />
+          <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=400&auto=format&fit=crop" alt="book" />
+        </div>
+      </div>
+      <div class="right-collage">
+        <div class="card"><img src="https://images.unsplash.com/photo-1542326237-94b1c5a538d6?q=80&w=600&auto=format&fit=crop" alt="detail"/></div>
+        <img class="portrait" src="https://images.pexels.com/photos/11924085/pexels-photo-11924085.jpeg" alt="model" />
+      </div>
+    </div>
+  </section>
+
+  <!-- NUMBERS STRIP -->
+  <section class="numbers">
+    <div class="wrap">
+      <div class="script">The Numbers</div>
+      <div class="stat"><div class="value">97</div><div class="label">Clients to date</div></div>
+      <div class="stat"><div class="value">15</div><div class="label">Years in business</div></div>
+      <div class="stat"><div class="value">7</div><div class="label">Current team members</div></div>
+    </div>
+  </section>
+
+  <!-- JOURNEY -->
+  <section class="journey">
+    <div class="wrap">
+      <h2>THE JOURNEY</h2>
+      <div class="timeline">
+        <div class="mile">
+          <div class="media"><img src="https://images.pexels.com/photos/2388569/pexels-photo-2388569.jpeg" alt="first studio"/></div>
+          <div class="info"><div class="year">2011</div><h3>Launched with our first design client — completing a brand</h3><p>Fresh out of school, we began taking on boutique brand projects and learning how design could elevate small teams, solopreneurs, and local shops.</p></div>
+        </div>
+        <div class="mile">
+          <div class="media"><img src="https://images.pexels.com/photos/8353767/pexels-photo-8353767.jpeg" alt="office move"/></div>
+          <div class="info"><div class="year">2016</div><h3>Moved into our first office space on Main Street</h3><p>Space for clients, samples, and meetings—plus enough sunlight for plants. We formalized our process and introduced mood boards and proof rounds.</p></div>
+        </div>
+        <div class="mile">
+          <div class="media"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200&auto=format&fit=crop" alt="workshop"/></div>
+          <div class="info"><div class="year">2021</div><h3>Launched our boutique shop and in‑person planning sessions</h3><p>We expanded services to include stationery, print collateral, and creative direction; partnered with stylists and photographers to offer full brand shoots.</p></div>
+        </div>
+        <div class="mile">
+          <div class="media"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="today"/></div>
+          <div class="info"><div class="year">2025</div><h3>Expanded to offer 360° services to better serve our clients</h3><p>From brand identity to interiors—ensuring every touchpoint feels cohesive and considered.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FULL IMAGE BAND -->
+  <section class="image-band" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1603052875222-cd6d0ad1a84d?q=80&w=2000&auto=format&fit=crop" alt="car" />
+  </section>
+
+  <!-- QUIZ GRID -->
+  <section class="quiz">
+    <div class="wrap">
+      <h2>Take the Quiz</h2>
+      <div class="quiz-grid">
+        <div class="quiz-col">
+          <div class="top">gin + tonic</div>
+          <div class="pair"><small>creativity brings</small><div><strong>love & blend</strong></div></div>
+          <div class="pair"><small>best advice</small><div><strong>never stop learning</strong></div></div>
+        </div>
+        <div class="quiz-col">
+          <div class="top">slow mornings</div>
+          <div class="pair"><small>always listening to</small><div><strong>alternative tunes</strong></div></div>
+          <div class="pair"><small>current design style</small><div><strong>contemporary</strong></div></div>
+        </div>
+        <div class="quiz-col">
+          <div class="top">singing karaoke</div>
+          <div class="pair"><small>what inspires me</small><div><strong>french architecture</strong></div></div>
+          <div class="pair"><small>fav room to makeover</small><div><strong>dining room</strong></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES / COLLAGE -->
+  <section class="values">
+    <div class="wrap">
+      <div class="collage">
+        <img src="https://images.pexels.com/photos/4889723/pexels-photo-4889723.jpeg" alt="moody curtain"/>
+        <div class="chip"><img src="https://images.pexels.com/photos/9218729/pexels-photo-9218729.jpeg" alt="florals" style="width:100%;height:100%;object-fit:cover"/></div>
+      </div>
+      <div>
+        <h3>The core values that define who we are as designers + humans.</h3>
+        <div class="item"><b>Passionate about authenticity + originality</b><p>Every brand has a fingerprint. We dig for it, then design around it—so your presence feels unmistakably yours.</p></div>
+        <div class="item"><b>A focus on craftsmanship, not just trends</b><p>Purposeful typography, tactile textures, and thoughtful spacing. We care about the details others overlook.</p></div>
+        <div class="item"><b>Curating true luxury in every detail</b><p>Elevated doesn’t mean loud. It means considered—quiet confidence that stands the test of time.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESOURCES CTA -->
+  <section class="resources">
+    <div class="wrap">
+      <h3>More Resources</h3>
+      <div class="res-grid">
+        <a class="card" href="#"><img src="https://images.pexels.com/photos/318379/pexels-photo-318379.jpeg" alt="portfolio"/><div class="cap">View the Portfolio</div></a>
+        <a class="card" href="#"><img src="https://images.pexels.com/photos/3585802/pexels-photo-3585802.jpeg" alt="offerings"/><div class="cap">Service Offerings</div></a>
+        <a class="card" href="#"><img src="https://images.pexels.com/photos/4938514/pexels-photo-4938514.jpeg" alt="contact"/><div class="cap">Inquire with Us</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER MID (center slice) -->
+  <footer>
+    <div class="footer-mid">
+      <div class="rail left">
+        <h4>navigate</h4>
+        <ul class="nav">
+          <li><a href="#">The Portfolio</a></li>
+          <li><a href="#">About Me</a></li>
+          <li><a href="#">Service Offerings</a></li>
+          <li><a href="#">Experience</a></li>
+        </ul>
+      </div>
+      <div class="brand">
+        <div class="logo">Fleura Design</div>
+        <div class="tagline">Expertly curating luxury brands and services<br>in Orting, Washington USA.</div>
+        <div class="socials">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm10 2H7a3 3 0 00-3 3v10a3 3 0 003 3h10a3 3 0 003-3V7a3 3 0 00-3-3zm-5 3.5a5.5 5.5 0 110 11 5.5 5.5 0 010-11zm0 2a3.5 3.5 0 100 7 3.5 3.5 0 000-7zM18 6.5a1 1 0 110 2 1 1 0 010-2z"/></svg></a>
+          <a href="#" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12.04 2C7.6 2 4 5.58 4 10.02c0 3.27 1.99 6.06 4.82 7.2-.07-.61-.14-1.55.03-2.22.15-.63.96-4.02.96-4.02s-.24-.49-.24-1.22c0-1.14.66-1.99 1.48-1.99.7 0 1.04.52 1.04 1.15 0 .7-.45 1.76-.69 2.74-.2.82.43 1.5 1.26 1.5 1.51 0 2.67-1.59 2.67-3.87 0-2.02-1.45-3.42-3.52-3.42-2.4 0-3.81 1.8-3.81 3.67 0 .72.28 1.49.64 1.91.07.08.08.15.06.24-.06.26-.2.82-.23.93-.04.13-.13.16-.3.1-1.12-.52-1.82-2.17-1.82-3.5 0-2.84 2.06-5.46 5.95-5.46 3.12 0 5.54 2.22 5.54 5.19 0 3.09-1.95 5.58-4.65 5.58-0.9 0-1.74-.47-2.03-1.02l-.55 2.1c-.2.77-.75 1.72-1.12 2.3.84.26 1.73.4 2.64.4 4.44 0 8.04-3.58 8.04-8.02C20.08 5.58 16.48 2 12.04 2z"/></svg></a>
+          <a href="#" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M16.5 3.5c.7 1.8 2.07 3.27 3.8 4.02v3.07a8.39 8.39 0 01-3.8-1.05v5.9c0 3.39-2.75 6.15-6.15 6.15S4.2 18.83 4.2 15.44s2.76-6.15 6.15-6.15c.34 0 .68.03 1 .09v3.2a3.52 3.52 0 00-1-.15 3.05 3.05 0 103.05 3.05V2.9h3.1v.6z"/></svg></a>
+        </div>
+      </div>
+      <div class="rail right">
+        <h4>navigate</h4>
+        <ul class="nav">
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms</a></li>
+          <li><a href="#">Get in Touch</a></li>
+          <li><a href="#">Education</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Newsletter + Copyright -->
+    <section class="footer-news">
+      <div class="strip" aria-hidden="true">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1400&auto=format&fit=crop" alt="">
+        <img src="https://images.pexels.com/photos/4889714/pexels-photo-4889714.jpeg" alt="">
+        <img src="https://images.pexels.com/photos/7382911/pexels-photo-7382911.jpeg" alt="">
+        <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1400&auto=format&fit=crop" alt="">
+        <img src="https://images.pexels.com/photos/4938272/pexels-photo-4938272.jpeg" alt="">
+        <img src="https://images.pexels.com/photos/1071285/pexels-photo-1071285.jpeg" alt="">
+      </div>
+      <div class="wrap">
+        <div class="kicker">Never miss out on the latest news</div>
+        <h3>Let’s Stay in Touch</h3>
+        <p class="sub">Subscribe to the newsletter eleifend cubilia congue morbi placerat malesuada dolor laoreet. Laorestete penatibus ornare varius condimentum vel, quam morbi pharetra nostra.</p>
+        <form class="footer-form" action="#" method="post">
+          <input type="text" name="first_name" placeholder="First Name" aria-label="First Name">
+          <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" required>
+          <button class="btn" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div class="footer-copy">Copyright © 2025 Fleura Design. All rights reserved. Design by Fleura Studio.</div>
+    </section>
+  </footer>
+
+  <script>
+    const btn = document.getElementById('menuBtn');
+    const nav = document.getElementById('siteNav');
+    btn.addEventListener('click', ()=> nav.classList.toggle('open'));
+  </script>
+</body>
+</html>
